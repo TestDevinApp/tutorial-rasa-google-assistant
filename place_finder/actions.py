@@ -26,7 +26,7 @@ class ActionPlaceSearch(Action):
 
         #retrieve google api key		
         with open("./ga_credentials.yml", 'r') as ymlfile:
-            cfg = yaml.load(ymlfile)
+            cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
         key = cfg['credentials']['GOOGLE_KEY']
 		
         #get user's current location		

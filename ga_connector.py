@@ -4,9 +4,7 @@ from sanic import Blueprint, response
 from sanic.request import Request
 from typing import Text, Optional, List, Dict, Any
 
-from rasa.core.channels.channel import UserMessage, OutputChannel
-from rasa.core.channels.channel import InputChannel
-from rasa.core.channels.channel import CollectingOutputChannel
+from rasa.core.channels.channel import UserMessage, OutputChannel, InputChannel, CollectingOutputChannel
 
 
 

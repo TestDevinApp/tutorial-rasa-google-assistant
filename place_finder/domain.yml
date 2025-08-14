@@ -1,19 +1,35 @@
+version: "3.1"
+
 slots:
- query:
-   type: text
- number:
-   type: text
- rating:
-   type: unfeaturized
- address:
-   type: unfeaturized
- opening_hours:
-   type: unfeaturized
- location_match:
-   type: categorical
-   values:
-   - none
-   - one
+  query:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: query
+  number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: number
+  rating:
+    type: any
+    mappings:
+    - type: custom
+  address:
+    type: any
+    mappings:
+    - type: custom
+  opening_hours:
+    type: any
+    mappings:
+    - type: custom
+  location_match:
+    type: categorical
+    values:
+    - none
+    - one
+    mappings:
+    - type: custom
 
 
 intents:

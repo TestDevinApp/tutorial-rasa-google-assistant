@@ -1,0 +1,224 @@
+version: "3.1"
+
+stories:
+- story: greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- story: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_01
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+    - number: "55"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "4.5"
+    - address: "Alexanderplatz 15"
+    - opening_hours: "open"
+  - intent: address
+  - action: utter_address
+  - intent: rating
+  - action: utter_rating
+  - intent: opening_hours
+  - action: utter_opening_hours
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_02
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+    - number: "21"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: none
+  - action: utter_no_results
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_03
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+    - number: "36"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "4.7"
+    - address: "Marylebone 15"
+    - opening_hours: "closed"
+  - intent: address
+  - action: utter_address
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_04
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+    - number: "25"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "3.0"
+    - address: "Bridge Street 175"
+    - opening_hours: "open"
+  - intent: rating
+  - action: utter_rating
+  - intent: address
+  - action: utter_address
+  - intent: opening_hours
+  - action: utter_opening_hours
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_05
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+    - number: "95"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "4.7"
+    - address: "King's street"
+    - opening_hours: "closed"
+  - intent: opening_hours
+  - action: utter_opening_hours
+  - intent: address
+  - action: utter_address
+  - intent: rating
+  - action: utter_rating
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_07
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+  - action: utter_what_radius
+  - intent: inform
+    entities:
+    - number: "200"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "4.2"
+    - address: "Alexanderplatz 26"
+    - opening_hours: "closed"
+  - intent: address
+  - action: utter_address
+  - intent: rating
+  - action: utter_rating
+  - intent: opening_hours
+  - action: utter_opening_hours
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_08
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+  - action: utter_what_radius
+  - intent: inform
+    entities:
+    - number: "275"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: none
+  - action: utter_no_results
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_09
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+  - action: utter_what_radius
+  - intent: inform
+    entities:
+    - number: "250"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "2.2"
+    - address: "London Bridge"
+    - opening_hours: "open"
+  - intent: address
+  - action: utter_address
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: location_search_10
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: place_search
+    entities:
+    - query: restaurant
+  - action: utter_what_radius
+  - intent: inform
+    entities:
+    - number: "200"
+  - action: action_place_search
+  - slot_was_set:
+    - location_match: one
+    - rating: "5.2"
+    - address: "London 273"
+    - opening_hours: "closed"
+  - intent: opening_hours
+  - action: utter_opening_hours
+  - intent: address
+  - action: utter_address
+  - intent: thanks
+  - action: utter_thanks
+  - intent: goodbye
+  - action: utter_goodbye
